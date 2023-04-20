@@ -222,6 +222,7 @@ function Kavo.CreateLib(kavName, themeList)
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
+    local UICorner = Instance.new("UICorner")
     local Time = Instance.new("TextLabel")
     local User = Instance.new("TextLabel")
     local time = Instance.new("TextLabel")
@@ -534,7 +535,7 @@ end)
                 FactName.Name = "FactName"
                 FactName.Parent = Main
                 FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                FactName.Position = UDim2.new(0, 0, 2, 0)
+                FactName.Position = UDim2.new(0.5, 0, 0.5, 0)
                 FactName.Size = UDim2.new(0, 353, 0, 50)
                 FactName.ZIndex = 9
                 FactName.Font = Enum.Font.GothamSemibold
@@ -546,6 +547,8 @@ end)
                 FactName.TextXAlignment = Enum.TextXAlignment.Left
                 Objects[FactName] = "BackgroundColor3"
 
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = FactName
     
     coroutine.wrap(function()
         while wait() do
