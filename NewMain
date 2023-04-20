@@ -330,7 +330,7 @@ function Kavo.CreateLib(kavName, themeList)
                         end
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(1.5)
+                        wait(5)
                         focusing = false
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)
@@ -542,6 +542,7 @@ end)
                 FactName.Font = Enum.Font.GothamSemibold
                 FactName.Text = "So u just click our name of hub and u know why our hub Name rom??"
                 FactName.RichText = true
+                FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
                 Objects[FactName] = "TextColor3"
                 FactName.TextSize = 14.000
