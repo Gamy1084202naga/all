@@ -525,8 +525,7 @@ fact.MouseButton1Click:Connect(function()
                         wait(8)
                         focusing = false
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)
-                        Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         viewDe = false
                     end
