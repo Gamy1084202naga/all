@@ -223,12 +223,27 @@ function Kavo.CreateLib(kavName, themeList)
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
     local UICorner = Instance.new("UICorner")
+    local UICorner = Instance.new("UICorner")
+    local UICorner = Instance.new("UICorner")  
+    local UICorner = Instance.new("UICorner")
+    local UICorner = Instance.new("UICorner")
+    local UICorner = Instance.new("UICorner")
     local Time = Instance.new("TextLabel")
+    local FactTime = Instance.new("TextButton")
+    local factTime = Instance.new("TextLabel")
     local User = Instance.new("TextLabel")
+    local FactUser = Instance.new("TextButton")
+    local factUser = Instance.new("TextLabel")
     local time = Instance.new("TextLabel")
+    local Facttime = Instance.new("TextButton")
+    local facttime = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
     local Fps = Instance.new("TextLabel")
+    local FactFps = Instance.new("TextButton")
+    local factFps = Instance.new("TextLabel")
     local Ping = Instance.new("TextLabel")
+    local FactPing = Instance.new("TextButton")
+    local factPing = Instance.new("TextLabel")
     local MainSide = Instance.new("Frame")
     local sideCorner = Instance.new("UICorner")
     local coverup_2 = Instance.new("Frame")
@@ -347,7 +362,18 @@ function Kavo.CreateLib(kavName, themeList)
             end)
         end
     end)
-        
+
+        FactTime.Name = "FactTime"
+    FactTime.Parent = MainHeader
+    FactTime.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FactTime.BackgroundTransparency = 1.000
+    FactTime.BorderSizePixel = 0
+    FactTime.Position = UDim2.new(0.285428565, 0, 0.213827592, 0)
+    FactTime.Size = UDim2.new(0, 204, 0, 8)
+    FactTime.Font = Enum.Font.Gotham
+    FactTime.RichText = true
+    FactTime.Text = ""
+    FactTime.TextColor3 = themeList.TextColor
     
     User.Name = "User"
     User.Parent = MainHeader
@@ -365,6 +391,18 @@ function Kavo.CreateLib(kavName, themeList)
     User.Text = "N/A"
 
     User.Text = user
+
+FactUser.Name = "FactUser"
+    FactUser.Parent = MainHeader
+    FactUser.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FactUser.BackgroundTransparency = 1.000
+    FactUser.BorderSizePixel = 0
+    FactUser.Position = UDim2.new(0.091428565, 0, 0.248827592, 0)
+    FactUser.Size = UDim2.new(0, 204, 0, 8)
+    FactUser.Font = Enum.Font.Gotham
+    FactUser.RichText = true
+    FactUser.Text = ""
+    FactUser.TextColor3 = themeList.TextColor
 
     time.Name = "time"
     time.Parent = MainHeader
@@ -387,6 +425,18 @@ function Kavo.CreateLib(kavName, themeList)
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
 	end)
+
+    Facttime.Name = "Facttime"
+    Facttime.Parent = MainHeader
+    Facttime.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Facttime.BackgroundTransparency = 1.000
+    Facttime.BorderSizePixel = 0
+    Facttime.Position = UDim2.new(0.091428565, 0, 0.647827592, 0)
+    Facttime.Size = UDim2.new(0, 204, 0, 8)
+    Facttime.Font = Enum.Font.Gotham
+    Facttime.RichText = true
+    Facttime.Text = ""
+    Facttime.TextColor3 = themeList.TextColor
 
     close.Name = "close"
     close.Parent = MainHeader
@@ -423,6 +473,18 @@ function Kavo.CreateLib(kavName, themeList)
     Fps.TextSize = 13.000    
     Fps.TextXAlignment = Enum.TextXAlignment.Left
 
+    FactFps.Name = "FactFps"
+    FactFps.Parent = MainHeader
+    FactFps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FactFps.BackgroundTransparency = 1.000
+    FactFps.BorderSizePixel = 0
+    FactFps.Position = UDim2.new(0.679999988, 0, 0.647827592, 0)
+    FactFps.Size = UDim2.new(0, 204, 0, 8)
+    FactFps.Font = Enum.Font.Gotham
+    FactFps.RichText = true
+    FactFps.Text = ""
+    FactFps.TextColor3 = themeList.TextColor
+
     Ping.Name = "Ping"
     Ping.Parent = MainHeader
     Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -434,6 +496,18 @@ function Kavo.CreateLib(kavName, themeList)
     Ping.TextColor3 = Color3.fromRGB(255, 255, 255)    
     Ping.TextSize = 13.000
     Ping.TextXAlignment = Enum.TextXAlignment.Left
+
+FactPing.Name = "FactPing"
+    FactPing.Parent = MainHeader
+    FactPing.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FactPing.BackgroundTransparency = 1.000
+    FactPing.BorderSizePixel = 0
+    FactPing.Position = UDim2.new(0.679999988, 0, 0.248827592, 0)
+    FactPing.Size = UDim2.new(0, 204, 0, 8)
+    FactPing.Font = Enum.Font.Gotham
+    FactPing.RichText = true
+    FactPing.Text = ""
+    FactPing.TextColor3 = themeList.TextColor
 
 local script = Instance.new('LocalScript', Fps)
 local RunService = game:GetService("RunService")
@@ -514,13 +588,7 @@ end)
 fact.MouseButton1Click:Connect(function()
                     if not viewDe then
                         viewDe = true
-                        focusing = true
-                        for i,v in next, infoContainer:GetChildren() do
-                            if v ~= moreInfo then
-                                Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                            end
-                        end
-                        
+                        focusing = true                        
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(8)
@@ -529,6 +597,86 @@ fact.MouseButton1Click:Connect(function()
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         viewDe = false
+                    end
+                end)
+
+factTime.MouseButton1Click:Connect(function()
+                    if Fact then
+  
+                         else                  
+                     getgenv().Fact = true      
+                        Utility:TweenObject(FactTime, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(4)
+                        
+                        Utility:TweenObject(FactTime, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+                    end
+                end)
+
+factUser.MouseButton1Click:Connect(function()
+                    if Fact then
+  
+                         else                  
+                     getgenv().Fact = true      
+                        Utility:TweenObject(FactUser, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(6)
+                        
+                        Utility:TweenObject(FactUser, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+                    end
+                end)
+
+facttime.MouseButton1Click:Connect(function()
+                    if Fact then
+  
+                         else                  
+                     getgenv().Fact = true      
+                        Utility:TweenObject(FactTime, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(5)
+                        
+                        Utility:TweenObject(FactTime, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+                    end
+                end)
+
+factFps.MouseButton1Click:Connect(function()
+                    if Fact then
+  
+                         else                  
+                     getgenv().Fact = true      
+                        Utility:TweenObject(FactFps, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(3)
+                        
+                        Utility:TweenObject(FactFps, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+                    end
+                end)
+
+factPing.MouseButton1Click:Connect(function()
+                    if Fact then
+  
+                         else                  
+                     getgenv().Fact = true      
+                        Utility:TweenObject(FactPing, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(3)
+                        
+                        Utility:TweenObject(FactPing, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
                     end
                 end)
 
@@ -552,6 +700,116 @@ fact.MouseButton1Click:Connect(function()
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
+
+                factTime.Name = "factTime"
+                factTime.Parent = Main
+                factTime.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                factTime.Position = UDim2.new(0.5,0,2,0)
+                factTime.Size = UDim2.new(0, 353, 0, 150)
+                factTime.ZIndex = 9
+                factTime.AnchorPoint = Vector2.new(0.5, 0.5)
+                factTime.Font = Enum.Font.GothamSemibold
+                factTime.Text = "that litte text u click is a timer count time when u join in server"
+                factTime.RichText = true
+                factTime.TextWrapped = true
+                factTime.TextColor3 = themeList.TextColor
+                Objects[factTime] = "TextColor3"
+                factTime.TextSize = 14.000
+                factTime.TextXAlignment = Enum.TextXAlignment.Left
+                factTime.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[factTime] = "BackgroundColor3"
+
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = factTime
+
+factUser.Name = "factUser"
+                factUser.Parent = Main
+                factUser.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                factUser.Position = UDim2.new(0.5,0,2,0)
+                factUser.Size = UDim2.new(0, 353, 0, 150)
+                factUser.ZIndex = 9
+                factUser.AnchorPoint = Vector2.new(0.5, 0.5)
+                factUser.Font = Enum.Font.GothamSemibold
+                factUser.Text = "text u click is ur DisplayName and"..game.Players.LocalPlayer.Name.." this ur username and "..game.Players.LocalPlayer.UserId.." this is ur Id"
+                factUser.RichText = true
+                factUser.TextWrapped = true
+                factUser.TextColor3 = themeList.TextColor
+                Objects[factUser] = "TextColor3"
+                factUser.TextSize = 14.000
+                factUser.TextXAlignment = Enum.TextXAlignment.Left
+                factUser.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[factUser] = "BackgroundColor3"
+
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = factUser
+
+facttime.Name = "facttime"
+                facttime.Parent = Main
+                facttime.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                facttime.Position = UDim2.new(0.5,0,2,0)
+                facttime.Size = UDim2.new(0, 353, 0, 150)
+                facttime.ZIndex = 9
+                facttime.AnchorPoint = Vector2.new(0.5, 0.5)
+                facttime.Font = Enum.Font.GothamSemibold
+                facttime.Text = "This is another timer it tell u the real life time"
+                facttime.RichText = true
+                facttime.TextWrapped = true
+                facttime.TextColor3 = themeList.TextColor
+                Objects[facttime] = "TextColor3"
+                facttime.TextSize = 14.000
+                facttime.TextXAlignment = Enum.TextXAlignment.Left
+                facttime.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[facttime] = "BackgroundColor3"
+
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = facttime
+
+factFps.Name = "factFps"
+                factFps.Parent = Main
+                factFps.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                factFps.Position = UDim2.new(0.5,0,2,0)
+                factFps.Size = UDim2.new(0, 353, 0, 150)
+                factFps.ZIndex = 9
+                factFps.AnchorPoint = Vector2.new(0.5, 0.5)
+                factFps.Font = Enum.Font.GothamSemibold
+                factFps.Text = "This tell u ur fps"
+                factFps.RichText = true
+                factFps.TextWrapped = true
+                factFps.TextColor3 = themeList.TextColor
+                Objects[factFps] = "TextColor3"
+                factFps.TextSize = 14.000
+                factFps.TextXAlignment = Enum.TextXAlignment.Left
+                factFps.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[factFps] = "BackgroundColor3"
+
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = factFps
+
+factPing.Name = "factPing"
+                factPing.Parent = Main
+                factPing.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                factPing.Position = UDim2.new(0.5,0,2,0)
+                factPing.Size = UDim2.new(0, 353, 0, 150)
+                factPing.ZIndex = 9
+                factPing.AnchorPoint = Vector2.new(0.5, 0.5)
+                factPing.Font = Enum.Font.GothamSemibold
+                factPing.Text = "This tell u the how much ping u got"
+                factPing.RichText = true
+                factPing.TextWrapped = true
+                factPing.TextColor3 = themeList.TextColor
+                Objects[factPing] = "TextColor3"
+                factPing.TextSize = 14.000
+                factPing.TextXAlignment = Enum.TextXAlignment.Left
+                factPing.TextYAlignment = Enum.TextYAlignment.Top
+                Objects[factPing] = "BackgroundColor3"
+
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = factPing
     
     coroutine.wrap(function()
         while wait() do
