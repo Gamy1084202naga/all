@@ -328,12 +328,12 @@ function Kavo.CreateLib(kavName, themeList)
                                 Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
                             end
                         end
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.2)
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(1.5)
                         focusing = false
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)
                         wait(0)
                         viewDe = false
                     end
@@ -536,7 +536,7 @@ end)
                 FactName.Parent = Main
                 FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
                 FactName.Position = UDim2.new(0,0,2,0)
-                FactName.Size = UDim2.new(0, 353, 0, 100)
+                FactName.Size = UDim2.new(0, 353, 0, 150)
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
