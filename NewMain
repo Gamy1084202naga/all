@@ -323,14 +323,10 @@ function Kavo.CreateLib(kavName, themeList)
                     if not viewDe then
                         viewDe = true
                         focusing = true
-                        for i,v in next, infoContainer:GetChildren() do
-                            if v ~= moreInfo then
-                                Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
-                            end
-                        end
+                        
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(5)
+                        wait(8)
                         focusing = false
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)
@@ -535,18 +531,19 @@ end)
                 FactName.Name = "FactName"
                 FactName.Parent = Main
                 FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                FactName.Position = UDim2.new(0,0,2,0)
+                FactName.Position = UDim2.new(0.5,0,2,0)
                 FactName.Size = UDim2.new(0, 353, 0, 150)
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name of hub and u know why our hub Name rom??"
+                FactName.Text = "So u just click our name and u know why our hub Name ROMHUB?? It come from my username that start with rom. my middle brother who give me this username. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
                 Objects[FactName] = "TextColor3"
                 FactName.TextSize = 14.000
                 FactName.TextXAlignment = Enum.TextXAlignment.Left
+                FactName.TextYAlignment = Enum.TextYAlignment.Top
                 Objects[FactName] = "BackgroundColor3"
 
 UICorner.CornerRadius = UDim.new(0, 4)
