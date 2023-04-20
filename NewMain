@@ -328,7 +328,7 @@ function Kavo.CreateLib(kavName, themeList)
                                 Utility:TweenObject(v, {Position = UDim2.new(0,0,2,0)}, 0.2)
                             end
                         end
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0,0,0,0)}, 0.2)
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.2)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(1.5)
                         focusing = false
@@ -535,9 +535,10 @@ end)
                 FactName.Name = "FactName"
                 FactName.Parent = Main
                 FactName.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                FactName.Position = UDim2.new(0.5, 0, 0.5, 0)
-                FactName.Size = UDim2.new(0, 353, 0, 50)
+                FactName.Position = UDim2.new(0,0,2,0)
+                FactName.Size = UDim2.new(0, 353, 0, 100)
                 FactName.ZIndex = 9
+                FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
                 FactName.Text = "So u just click our name of hub and u know why our hub Name rom??"
                 FactName.RichText = true
