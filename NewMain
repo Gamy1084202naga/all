@@ -511,7 +511,7 @@ end)
     infoContainer.Size = UDim2.new(0, 368, 0, 33)
 
 fact.MouseButton1Click:Connect(function()
-                    if not viewDe the
+                    if not viewDe then
                         viewDe = true
                         focusing = true
                         for i,v in next, infoContainer:GetChildren() do
