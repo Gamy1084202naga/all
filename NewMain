@@ -499,30 +499,6 @@ RunService.RenderStepped:Connect(function(ping)
 script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
 end)
 
-    FactFps.Name = "FactFps"
-    FactFps.Parent = MainHeader
-    FactFps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    FactFps.BackgroundTransparency = 1.000
-    FactFps.BorderSizePixel = 0
-    FactFps.Position = UDim2.new(0.679999988, 0, 0.647827592, 0)
-    FactFps.Size = UDim2.new(0, 204, 0, 8)
-    FactFps.Font = Enum.Font.Gotham
-    FactFps.RichText = true
-    FactFps.Text = ""
-    FactFps.TextColor3 = themeList.TextColor  
-
-FactPing.Name = "FactPing"
-    FactPing.Parent = MainHeader
-    FactPing.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    FactPing.BackgroundTransparency = 1.000
-    FactPing.BorderSizePixel = 0
-    FactPing.Position = UDim2.new(0.679999988, 0, 0.248827592, 0)
-    FactPing.Size = UDim2.new(0, 204, 0, 8)
-    FactPing.Font = Enum.Font.Gotham
-    FactPing.RichText = true
-    FactPing.Text = ""
-    FactPing.TextColor3 = themeList.TextColor
-
     MainSide.Name = "MainSide"
     MainSide.Parent = Main
     MainSide.BackgroundColor3 = themeList.Header
@@ -643,38 +619,6 @@ facttime.MouseButton1Click:Connect(function()
                         wait(5)
                         
                         Utility:TweenObject(FactTime, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
-                        wait(0)
-                        getgenv().Fact = false
-                    end
-                end)
-
-factFps.MouseButton1Click:Connect(function()
-                    if Fact then
-  
-                         else                  
-                     getgenv().Fact = true      
-                        Utility:TweenObject(FactFps, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(3)
-                        
-                        Utility:TweenObject(FactFps, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
-                        wait(0)
-                        getgenv().Fact = false
-                    end
-                end)
-
-factPing.MouseButton1Click:Connect(function()
-                    if Fact then
-  
-                         else                  
-                     getgenv().Fact = true      
-                        Utility:TweenObject(FactPing, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(3)
-                        
-                        Utility:TweenObject(FactPing, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         getgenv().Fact = false
