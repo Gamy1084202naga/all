@@ -230,6 +230,8 @@ function Kavo.CreateLib(kavName, themeList)
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
     local Setting = Instance.new("ImageButton")
+    local SettingUI = Instance.new("Frame")
+    local Settings = Instance.new("TextButton")
     local Fps = Instance.new("TextLabel")    
     local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
@@ -424,18 +426,14 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.ZIndex = 2
     Setting.Image = "rbxassetid://13198060514"   
     Setting.MouseButton1Click:Connect(function()
-        Utility:TweenObject(FactName, {TextTransparency = 1}, 0.1)
-        game.TweenService:Create(Setting, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
-            ImageTransparency = 1
-        }):Play()
-        wait()
-        game.TweenService:Create(Main, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-			Size = UDim2.new(0,0,0,0),
-			Position = UDim2.new(0, Main.AbsolutePosition.X + (Main.AbsoluteSize.X / 2), 0, Main.AbsolutePosition.Y + (Main.AbsoluteSize.Y / 2))
-		}):Play()
-        wait(1)
-        getgenv().Executed = false
-        ScreenGui:Destroy()
+        if Setting then
+
+                         else
+                       getgenv().Setting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(12)
+         end         
     end)
 
     Fps.Name = "Fps"
@@ -600,6 +598,20 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         wait(0)
                         getgenv().Fact = false
 end)
+
+          SettingUI.Name = "SettingUI"
+                SettingUI.Parent = Main
+                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.Position = UDim2.new(0.5,0,2,0)
+                SettingUI.Size = UDim2.new(0, 403, 0, 200)
+                SettingUI.ZIndex = 9
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)
+                SettingUI.Font = Enum.Font.GothamSemibold
+                Objects[SettingUI] = "BackgroundColor3"
+              
+UICorner.CornerRadius = UDim.new(0, 4)
+                UISettingParent = SettingUI
+
 
     coroutine.wrap(function()
         while wait() do
