@@ -679,7 +679,7 @@ end)
                     Sample.ImageColor3 = themeList.SchemeColor
                     Sample.ImageTransparency = 0.600
 
-ToggleElement.MouseButton1Click:Connect(function()
+toggleElement.MouseButton1Click:Connect(function()
 if anonymous then
 getgenv().anonymous = false
 game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
