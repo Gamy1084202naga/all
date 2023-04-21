@@ -386,13 +386,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"
     
-    _G.time = true 
-
-while _G.time == true do 
-wait() 
-time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-wait(0)
-end
+    
 
    
     
