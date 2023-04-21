@@ -435,7 +435,7 @@ function Kavo.CreateLib(kavName, themeList)
                         Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)
                     
-                        wait(12)
+                        wait(6)
           Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().NOSetting = false
@@ -686,14 +686,14 @@ getgenv().anonymous = false
 User.Text = User
 UserImage.Image = pfp
 
-toggleEnaled.ImageTransparency = 1
+Enable.ImageTransparency = 1
 
 else
 getgenv().anonymous = true
 User.Text = "ANONYMOUS"
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
 
-toggleEnaled.ImageTransparency = 0             
+Enable.ImageTransparency = 0             
 end
 end)                    
  
