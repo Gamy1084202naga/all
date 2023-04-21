@@ -386,7 +386,15 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"
     
-    
+    _G.time = true 
+
+while _G.time == true do 
+wait() 
+print("work")
+wait(0)
+end
+
+
 
    
     close.Name = "close"
@@ -470,7 +478,7 @@ end)
 local script = Instance.new('LocalScript', Ping)
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(ping) 
-script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
+script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping)
 end)
 
     MainSide.Name = "MainSide"
