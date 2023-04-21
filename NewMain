@@ -386,8 +386,11 @@ function Kavo.CreateLib(kavName, themeList)
 
     time.Text = "N/A"
 
+local time = true
+
     spawn(function()
-	while wait() do
+	while time == true do
+        wait()
 	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
 	end
 	end)
@@ -676,17 +679,27 @@ end)
                     Sample.ImageTransparency = 0.600
 
 local anony = toggleElement
+local Enable = toggleEnabled
 
 anony.MouseButton1Click:Connect(function()
 if anonymous then
 getgenv().anonymous = false
-game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
+User.Text = User
+UserImage.Image = pfp
+time = true
+
+game.TweenService:Create(Enable, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
                                 ImageTransparency = 0
                    }):Play()
 
 else
 getgenv().anonymous = true
-            game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
+User.Text = "ANONYMOUS"
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=0&width=420&height=420&format=png" 
+time = false
+time.Text = "Unknow"	
+
+            game.TweenService:Create(Enable, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
                                 ImageTransparency = 1
                    }):Play()
 end
