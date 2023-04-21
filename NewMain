@@ -222,14 +222,16 @@ function Kavo.CreateLib(kavName, themeList)
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
-    local UICorner = Instance.new("UICorner"
+    local Factclose = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
     local UICorners = Instance.new("UICorner") 
     local Time = Instance.new("TextLabel")    
     local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
-    local Setting = Instance.new("ImageButton")    
+    local Setting = Instance.new("ImageButton")
+    local SettingUI = Instance.new("Frame")
+    local Anonymous = Instance.new("TextButton")    
     local Fps = Instance.new("TextLabel")    
     local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
@@ -300,7 +302,7 @@ function Kavo.CreateLib(kavName, themeList)
     title.Name = "title"
     title.Parent = MainHeader
     title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    title.BackgroundTransparency = 1.000
+    title.BackgroundTransparency = 1
     title.BorderSizePixel = 0
     title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
     title.Size = UDim2.new(0, 204, 0, 8)
@@ -313,10 +315,10 @@ function Kavo.CreateLib(kavName, themeList)
     fact.Name = "Fact"
     fact.Parent = MainHeader
     fact.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    fact.BackgroundTransparency = 1.000
+    fact.BackgroundTransparency = 1
     fact.BorderSizePixel = 0
-    fact.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
-    fact.Size = UDim2.new(0, 204, 0, 8)
+    fact.Position = UDim2.new(0.405428565, 0, 0.615827592, 0)
+    fact.Size = UDim2.new(0, 64, 0, 9)
     fact.Font = Enum.Font.Gotham
     fact.RichText = true
     fact.Text = ""
@@ -418,21 +420,22 @@ function Kavo.CreateLib(kavName, themeList)
 
     Setting.Name = "Setting"
     Setting.Parent = MainHeader
-    Setting.BackgroundTransparency = 1.000
+    Setting.BackgroundTransparency = 1
     Setting.Position = UDim2.new(0.909999988, 0, 0.137999997, 0)
-    Setting.Size = UDim2.new(0, 21, 0, 21)
+    Setting.Size = UDim2.new(0, 20, 0, 20)
     Setting.ZIndex = 2
-    Setting.Image = "rbxassetid://13198060514"  
-    Setting.ImageColor3 = Color3.fromRGB(255,255,255)
+    Setting.Image = "rbxassetid://13199563311" 
+    Setting.ImageColor3 = Color3.fromRGB(255,255,255)     
     Setting.MouseButton1Click:Connect(function()
         if NOSetting then
 
                          else
                        getgenv().NOSetting = true
-                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)
+                    
                         wait(12)
-          Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+          Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
          end         
     end)
@@ -471,7 +474,7 @@ end)
 local script = Instance.new('LocalScript', Ping)
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(ping) 
-script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping)
+script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
 end)
 
     MainSide.Name = "MainSide"
@@ -546,12 +549,15 @@ fact.MouseButton1Click:Connect(function()
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(12)
+                  if Fact == false then
 
+                  else
+                        
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         getgenv().Fact = false
-             
+             end
                     end
                 end)
 
@@ -575,7 +581,111 @@ fact.MouseButton1Click:Connect(function()
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
+
+
+
+Factclose.Parent = FactName 
+Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
+Factclose.BackgroundTransparency = 1
+Factclose.Position = UDim2.new(0.9, 0, 0.2552890813, 0)
+Factclose.Size = UDim2.new(0, 0, 0, 0)
+Factclose.Text = "CLOSE RN😡"
+Factclose.TextTransparency = 1
+Factclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+Factclose.TextSize = 14.000
+
+UICorners.CornerRadius = UDim.new(0, 10) 
+
+UICorners.Parent = Factclose                
     
+Factclose.MouseButton1Click:Connect(function()
+Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+end)
+
+
+                SettingUI.Name = "SettingUI"
+                SettingUI.Parent = Main
+                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.Position = UDim2.new(0.5,0,2,0)
+                SettingUI.Size = UDim2.new(0, 353, 0, 150)
+                SettingUI.ZIndex = 9
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
+
+local toggleElement = Instance.new("TextButton")
+                    local UICorner = Instance.new("UICorner")
+                    local toggleDisabled = Instance.new("ImageLabel")
+                    local toggleEnabled = Instance.new("ImageLabel")
+                    local togName = Instance.new("TextLabel")                  
+                    local Sample = Instance.new("ImageLabel")
+               
+                    toggleElement.Name = "toggleElement"
+                    toggleElement.Parent = SettingUI
+                    toggleElement.BackgroundColor3 = themeList.ElementColor
+                    toggleElement.ClipsDescendants = true
+                    toggleElement.Size = UDim2.new(0, 352, 0, 33)
+                    toggleElement.AutoButtonColor = false
+                    toggleElement.Font = Enum.Font.SourceSans
+                    toggleElement.Text = ""
+                    toggleElement.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    toggleElement.TextSize = 14.000
+
+                    UICorner.CornerRadius = UDim.new(0, 4)
+                    UICorner.Parent = toggleElement
+
+                    toggleDisabled.Name = "toggleDisabled"
+                    toggleDisabled.Parent = toggleElement
+                    toggleDisabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    toggleDisabled.BackgroundTransparency = 1.000
+                    toggleDisabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    toggleDisabled.Size = UDim2.new(0, 21, 0, 21)
+                    toggleDisabled.Image = "rbxassetid://3926309567"
+                    toggleDisabled.ImageColor3 = themeList.SchemeColor
+                    toggleDisabled.ImageRectOffset = Vector2.new(628, 420)
+                    toggleDisabled.ImageRectSize = Vector2.new(48, 48)
+
+                    toggleEnabled.Name = "toggleEnabled"
+                    toggleEnabled.Parent = toggleElement
+                    toggleEnabled.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    toggleEnabled.BackgroundTransparency = 1.000
+                    toggleEnabled.Position = UDim2.new(0.0199999996, 0, 0.180000007, 0)
+                    toggleEnabled.Size = UDim2.new(0, 21, 0, 21)
+                    toggleEnabled.Image = "rbxassetid://3926309567"
+                    toggleEnabled.ImageColor3 = themeList.SchemeColor
+                    toggleEnabled.ImageRectOffset = Vector2.new(784, 420)
+                    toggleEnabled.ImageRectSize = Vector2.new(48, 48)
+                    toggleEnabled.ImageTransparency = 1.000
+
+                    togName.Name = "togName"
+                    togName.Parent = toggleElement
+                    togName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    togName.BackgroundTransparency = 1.000
+                    togName.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
+                    togName.Size = UDim2.new(0, 288, 0, 14)
+                    togName.Font = Enum.Font.GothamSemibold
+                    togName.Text = tname
+                    togName.RichText = true
+                    togName.TextColor3 = themeList.TextColor
+                    togName.TextSize = 14.000
+                    togName.TextXAlignment = Enum.TextXAlignment.Left
+                    
+                    Sample.Name = "Sample"
+                    Sample.Parent = toggleElement
+                    Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Sample.BackgroundTransparency = 1.000
+                    Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+                    Sample.ImageColor3 = themeList.SchemeColor
+                    Sample.ImageTransparency = 0.600
+
+ToggleElement.MouseButton1Click:Connect(function()
+                    game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
+                                    ImageTransparency = 1
+                                }):Play()
+end)                    
+
+                     
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
