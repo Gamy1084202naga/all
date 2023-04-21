@@ -222,7 +222,9 @@ function Kavo.CreateLib(kavName, themeList)
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
+    local Factclose = Instance.new("TextButton")
     local UICorner = Instance.new("UICorner")
+    local UICorners = Instance.new("UICorner") 
     local Time = Instance.new("TextLabel")    
     local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
@@ -551,8 +553,27 @@ fact.MouseButton1Click:Connect(function()
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
 
-                
+Factclose.Parent = FactName 
+Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
+Factclose.BackgroundTransparency = 0
+Factclose.Position = UDim2.new(0.67, 0, 0.3552890813, 0)
+Factclose.Size = UDim2.new(0, 120, 0, 60)
+Factclose.Text = "CLOSE RN😡"
+Factclose.TextTransparency = 1
+Factclose.TextColor3 = Color3.fromRGB(255, 255, 255)
+Factclose.TextSize = 14.000
+
+UICorners.CornerRadius = UDim.new(0, 10) 
+
+UICorners.Parent = Factclose                
     
+Factclose.MouseButton1Click:Connect(function()
+Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
+                        wait(0)
+                        getgenv().Fact = false
+end)
+
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
