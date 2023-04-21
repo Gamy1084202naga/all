@@ -138,7 +138,7 @@ local themeStyles = {
 }
 local oldTheme = ""
 
-local SettingsT = {
+local SettingsT = { Anoymous = false
 
 }
 
