@@ -673,6 +673,19 @@ local anony = toggleElement
 local Enable = toggleEnabled
 
 anony.MouseButton1Click:Connect(function()
+
+if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+Enable.ImageTransparency = 1
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
+else
+if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+Enable.ImageTransparency = 0
+User.Text = "Anonymous"
+time.TextTransparency = 1
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+else
 if anonymous then
 getgenv().anonymous = false
 writefile("/romhub/UiSetting", "{Anonymous = false}") 
@@ -685,10 +698,12 @@ else
 getgenv().anonymous = true
 writefile("/romhub/UiSetting", "{Anonymous = true}") 
 User.Text = "Anonymous"
-time.TextTransparency = 0
+time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
 
 Enable.ImageTransparency = 0             
+end
+end
 end
 end)                    
  
