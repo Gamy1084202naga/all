@@ -426,16 +426,16 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)
 local st = Setting         
 st.MouseButton1Click:Connect(function()
-
-
-getgenv().setting = true
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-          wait("5")             
+if setting then
 Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().setting = false
 
+else
+getgenv().setting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+end
 end)                    
  
 
@@ -568,7 +568,7 @@ fact.MouseButton1Click:Connect(function()
                 FactName.ZIndex = 9
                 FactName.AnchorPoint = Vector2.new(0.5, 0.5)
                 FactName.Font = Enum.Font.GothamSemibold
-                FactName.Text = "So u just click our name and u know why our hub Name ROMHUB?? It come from my username that start with rom. my middle brother who give me this username. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
+                FactName.Text = "So u just click our name and u know why our hub Name is ROMHUB?? It come from my username that start with rom. And i think it pretty iconic so i use them to this time! And the hub is from other script like to end with hub! That the end!"
                 FactName.RichText = true
                 FactName.TextWrapped = true
                 FactName.TextColor3 = themeList.TextColor
