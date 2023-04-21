@@ -687,6 +687,19 @@ Enable.ImageTransparency = 0
 end
 end)                    
  
+if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
+else
+if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+User.Text = user
+time.TextTransparency = 1
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+else
+
+end
+end
                      
     coroutine.wrap(function()
         while wait() do
@@ -2993,17 +3006,4 @@ end)
 end
 return Kavo
 
-if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
-User.Text = user
-time.TextTransparency = 0
-UserImage.Image = pfp
-else
-if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
-User.Text = user
-time.TextTransparency = 1
-UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
-else
-
-end
-end
 
