@@ -297,8 +297,7 @@ function Kavo.CreateLib(kavName, themeList)
     UserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     UserImage.BackgroundTransparency = 1.000
     UserImage.Position = UDim2.new(0.009, 0, 0, 0)
-    UserImage.Size = UDim2.new(0, 35, 0, 35)
-    UserImage.Image = pfp 
+    UserImage.Size = UDim2.new(0, 35, 0, 35)      
 	
 	
     title.Name = "title"
@@ -680,7 +679,7 @@ else
 getgenv().anonymous = true
 writefile("/romhub/UiSetting", "{Anonymous = true}") 
 User.Text = "Anonymous"
-time.TextTransparency = 1
+time.TextTransparency = 0
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
 
 Enable.ImageTransparency = 0             
@@ -688,16 +687,20 @@ end
 end)                    
  
 if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+Enable.ImageTransparency = 1
 User.Text = user
 time.TextTransparency = 0
 UserImage.Image = pfp
 else
 if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
-User.Text = user
+Enable.ImageTransparency = 0
+User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
 else
-
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
 end
 end
                      
