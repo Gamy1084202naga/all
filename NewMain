@@ -614,7 +614,7 @@ end)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
-local toggleElement = Instance.new("TextButton")
+                    local toggleElement = Instance.new("TextButton")
                     local UICorner = Instance.new("UICorner")
                     local toggleDisabled = Instance.new("ImageLabel")
                     local toggleEnabled = Instance.new("ImageLabel")
@@ -665,7 +665,7 @@ local toggleElement = Instance.new("TextButton")
                     togName.Position = UDim2.new(0.096704483, 0, 0.272727281, 0)
                     togName.Size = UDim2.new(0, 288, 0, 14)
                     togName.Font = Enum.Font.GothamSemibold
-                    togName.Text = tname
+                    togName.Text = "Anonymous Mode"
                     togName.RichText = true
                     togName.TextColor3 = themeList.TextColor
                     togName.TextSize = 14.000
@@ -680,9 +680,18 @@ local toggleElement = Instance.new("TextButton")
                     Sample.ImageTransparency = 0.600
 
 ToggleElement.MouseButton1Click:Connect(function()
-                    game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
-                                    ImageTransparency = 1
-                                }):Play()
+if anonymous then
+getgenv().anonymous = false
+game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
+                                ImageTransparency = 0
+                   }):Play()
+
+else
+getgenv().anonymous = true
+            game.TweenService:Create(ToggleEnabled, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
+                                ImageTransparency = 1
+                   }):Play()
+end
 end)                    
 
                      
