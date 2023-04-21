@@ -532,6 +532,7 @@ fact.MouseButton1Click:Connect(function()
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         getgenv().Fact = false
+             end
                     end
                 end)
 
