@@ -428,7 +428,6 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)
     Setting.MouseButton1Click:Connect(function()
         if Setting then
-
                          else
                        getgenv().Setting = true
                         Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
@@ -606,8 +605,7 @@ end)
                 SettingUI.Position = UDim2.new(0.5,0,2,0)
                 SettingUI.Size = UDim2.new(0, 403, 0, 200)
                 SettingUI.ZIndex = 9
-                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)
-                SettingUI.Font = Enum.Font.GothamSemibold
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
                 Objects[SettingUI] = "BackgroundColor3"
               
 UICorner.CornerRadius = UDim.new(0, 4)
