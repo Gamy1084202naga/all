@@ -138,20 +138,22 @@ local themeStyles = {
 }
 local oldTheme = ""
 
-local SettingsT = { Anoymous = false
+local SettingsT = { 
 
 }
 
-local Name = "KavoConfig.JSON"
-
-pcall(function()
-
-if not pcall(function() readfile(Name) end) then
-writefile(Name, game:service'HttpService':JSONEncode(SettingsT))
+if isfolder("/romhub") then
+   if isfile("/romhub/UiSetting", "") then
+   
+else
+   writefile("/romhub/UiSetting", "") 
+   
+    
 end
-
-Settings = game:service'HttpService':JSONEncode(readfile(Name))
-end)
+else
+  makefolder("romhub")
+  writefile("/romhub/UiSetting", "")   
+end
 
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
@@ -323,7 +325,7 @@ function Kavo.CreateLib(kavName, themeList)
     fact.RichText = true
     fact.Text = ""
     fact.TextColor3 = themeList.TextColor 
-                
+               
     Time.Name = "Time"
     Time.Parent = MainHeader
     Time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -344,8 +346,8 @@ function Kavo.CreateLib(kavName, themeList)
         local Second = math.floor(GameTime/(60^0))%60
         Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
-    
-    spawn(function()
+       
+spawn(function()
         while task.wait() do
             pcall(function()
                 UpdateTime()
@@ -368,7 +370,7 @@ function Kavo.CreateLib(kavName, themeList)
 
     User.Text = "N/A"
 
-    User.Text = user
+    
 
     time.Name = "time"
     time.Parent = MainHeader
@@ -384,14 +386,8 @@ function Kavo.CreateLib(kavName, themeList)
     time.TextXAlignment = Enum.TextXAlignment.Left
 
 
-    time.Text = "N/A"
+    time.Text = "N/A"   
     
-    spawn(function()
-	while wait() do
-	time.Text = ""..os.date("%H")..":"..os.date("%M")..":"..os.date("%S")
-	end
-	end)
-   
     close.Name = "close"
     close.Parent = MainHeader
     close.BackgroundTransparency = 1.000
@@ -674,6 +670,7 @@ local Enable = toggleEnabled
 anony.MouseButton1Click:Connect(function()
 if anonymous then
 getgenv().anonymous = false
+writefile("/romhub/UiSetting", "{Anonymous = false}") 
 User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
@@ -681,6 +678,7 @@ Enable.ImageTransparency = 1
 
 else
 getgenv().anonymous = true
+writefile("/romhub/UiSetting", "{Anonymous = true}") 
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
@@ -2995,4 +2993,17 @@ end)
 end
 return Kavo
 
+if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
+User.Text = user
+time.TextTransparency = 0
+UserImage.Image = pfp
+else
+if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+User.Text = user
+time.TextTransparency = 1
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+else
+
+end
+end
 
