@@ -578,26 +578,8 @@ fact.MouseButton1Click:Connect(function()
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
 
-Factclose.Parent = FactName 
-Factclose.BackgroundColor3 = Color3.fromRGB(255,1,1)
-Factclose.BackgroundTransparency = 1
-Factclose.Position = UDim2.new(0.9, 0, 0.2552890813, 0)
-Factclose.Size = UDim2.new(0, 0, 0, 0)
-Factclose.Text = "CLOSE RN😡"
-Factclose.TextTransparency = 1
-Factclose.TextColor3 = Color3.fromRGB(255, 255, 255)
-Factclose.TextSize = 14.000
 
-UICorners.CornerRadius = UDim.new(0, 10) 
-
-UICorners.Parent = Factclose                
     
-Factclose.MouseButton1Click:Connect(function()
-Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
-                        wait(0)
-                        getgenv().Fact = false
-end)
 
           SettingUI.Name = "SettingUI"
                 SettingUI.Parent = Main
