@@ -429,15 +429,7 @@ end
     Setting.Size = UDim2.new(0, 20, 0, 20)
     Setting.ZIndex = 2
     Setting.Image = "rbxassetid://13199563311" 
-    Setting.ImageColor3 = Color3.fromRGB(255,255,255)     
-    Setting.MouseButton1Click:Connect(function()
-        if NOSetting then
-
-
-                         else
-                                  
-         end         
-    end)
+    Setting.ImageColor3 = Color3.fromRGB(255,255,255)         
 Setting.MouseButton1Click:Connect(function()
 if setting then
 
