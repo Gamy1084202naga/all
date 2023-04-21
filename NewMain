@@ -427,14 +427,7 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.Image = "rbxassetid://13198060514"  
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)
     Setting.MouseButton1Click:Connect(function()
-        if NOSetting then
- 
-                         else
-                       getgenv().NOSetting = true
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                        wait(12)
-         end         
+        
     end)
 
     Fps.Name = "Fps"
