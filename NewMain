@@ -229,9 +229,7 @@ function Kavo.CreateLib(kavName, themeList)
     local User = Instance.new("TextLabel")    
     local time = Instance.new("TextLabel")
     local close = Instance.new("ImageButton")
-    local Setting = Instance.new("ImageButton")
-    local SettingUI = Instance.new("Frame")
-    local Settings = Instance.new("TextButton")
+    local Setting = Instance.new("ImageButton")    
     local Fps = Instance.new("TextLabel")    
     local Ping = Instance.new("TextLabel")    
     local MainSide = Instance.new("Frame")
@@ -431,10 +429,10 @@ function Kavo.CreateLib(kavName, themeList)
 
                          else
                        getgenv().NOSetting = true
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(12)
-          Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+          Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
          end         
     end)
@@ -548,15 +546,12 @@ fact.MouseButton1Click:Connect(function()
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                         wait(12)
-                  if Fact == false then
 
-                  else
-                        
                         Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.8)                        
                         wait(0)
                         getgenv().Fact = false
-             end
+             
                     end
                 end)
 
@@ -580,19 +575,7 @@ fact.MouseButton1Click:Connect(function()
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
-
-SettingUI.Name = "SettingUI"
-                SettingUI.Parent = Main
-                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                SettingUI.Position = UDim2.new(0.5,0,2,0)
-                SettingUI.Size = UDim2.new(0, 353, 0, 150)
-                SettingUI.ZIndex = 9
-                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
-                Objects[SettingUI] = "BackgroundColor3"
-
-UICorner.CornerRadius = UDim.new(0, 4)
-                UICorner.Parent = SettingUI
-         
+    
     coroutine.wrap(function()
         while wait() do
             Main.BackgroundColor3 = themeList.Background
