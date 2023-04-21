@@ -686,21 +686,17 @@ getgenv().anonymous = false
 User.Text = User
 UserImage.Image = pfp
 
-game.TweenService:Create(Enable, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
-                                ImageTransparency = 0
-                   }):Play()
+toggleEnaled.ImageTransparency = 1
 
 else
 getgenv().anonymous = true
 User.Text = "ANONYMOUS"
-UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=0&width=420&height=420&format=png" 	
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
 
-            game.TweenService:Create(Enable, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
-                                ImageTransparency = 1
-                   }):Play()
+toggleEnaled.ImageTransparency = 0             
 end
 end)                    
-
+ 
                      
     coroutine.wrap(function()
         while wait() do
