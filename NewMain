@@ -433,17 +433,27 @@ end
     Setting.MouseButton1Click:Connect(function()
         if NOSetting then
 
-Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
-getgenv().NOSetting = false
 
                          else
-                       getgenv().NOSetting = true
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
                                   
          end         
     end)
+Setting.MouseButton1Click:Connect(function()
+if setting then
+
+Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+getgenv().setting = false
+
+
+else
+getgenv().setting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                       
+end
+end)                    
+ 
 
     Fps.Name = "Fps"
     Fps.Parent = MainHeader
