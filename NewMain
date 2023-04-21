@@ -337,7 +337,7 @@ function Kavo.CreateLib(kavName, themeList)
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
-        Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second" Sec")
+        Time.Text = ("Timer "..Hour.." Hr : "..Minute.." Min : "..Second.." Sec")
     end
     
     spawn(function()
