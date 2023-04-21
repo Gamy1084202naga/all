@@ -222,7 +222,7 @@ function Kavo.CreateLib(kavName, themeList)
     local title = Instance.new("TextLabel")
     local fact = Instance.new("TextButton")
     local FactName = Instance.new("TextLabel")
-    local Factclose = Instance.new("TextButton")
+    local UICorner = Instance.new("UICorner"
     local UICorner = Instance.new("UICorner")
     local UICorners = Instance.new("UICorner") 
     local Time = Instance.new("TextLabel")    
@@ -591,8 +591,7 @@ UICorner.CornerRadius = UDim.new(0, 4)
                 Objects[SettingUI] = "BackgroundColor3"
               
 UICorner.CornerRadius = UDim.new(0, 4)
-                UISettingParent = SettingUI
-
+                UICorner.Parent = SettingUI
 
     coroutine.wrap(function()
         while wait() do
