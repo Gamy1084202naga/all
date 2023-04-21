@@ -431,19 +431,16 @@ end
     Setting.Image = "rbxassetid://13199563311" 
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)         
 Setting.MouseButton1Click:Connect(function()
-if setting then
 
+
+getgenv().setting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+          wait("5")             
 Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().setting = false
 
-
-else
-getgenv().setting = true
-                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
-                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
-                       
-end
 end)                    
  
 
