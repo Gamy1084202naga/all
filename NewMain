@@ -427,7 +427,16 @@ function Kavo.CreateLib(kavName, themeList)
     Setting.Image = "rbxassetid://13198060514"  
     Setting.ImageColor3 = Color3.fromRGB(255,255,255)
     Setting.MouseButton1Click:Connect(function()
-        
+        if NOSetting then
+
+                         else
+                       getgenv().NOSetting = true
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
+                        wait(12)
+          Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+                        Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
+         end         
     end)
 
     Fps.Name = "Fps"
@@ -464,7 +473,7 @@ end)
 local script = Instance.new('LocalScript', Ping)
 local RunService = game:GetService("RunService")
 RunService.RenderStepped:Connect(function(ping) 
-script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping
+script.Parent.Text = ("Ping: " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping))) -- your ping)
 end)
 
     MainSide.Name = "MainSide"
@@ -571,6 +580,18 @@ fact.MouseButton1Click:Connect(function()
 
 UICorner.CornerRadius = UDim.new(0, 4)
                 UICorner.Parent = FactName
+
+SettingUI.Name = "SettingUI"
+                SettingUI.Parent = Main
+                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.Position = UDim2.new(0.5,0,2,0)
+                SettingUI.Size = UDim2.new(0, 353, 0, 150)
+                SettingUI.ZIndex = 9
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
+                Objects[SettingUI] = "BackgroundColor3"
+
+UICorner.CornerRadius = UDim.new(0, 4)
+                UICorner.Parent = SettingUI
          
     coroutine.wrap(function()
         while wait() do
