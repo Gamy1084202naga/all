@@ -683,7 +683,7 @@ local Enable = toggleEnabled
 anony.MouseButton1Click:Connect(function()
 if anonymous then
 getgenv().anonymous = false
-User.Text = User
+User.Text = user
 UserImage.Image = pfp
 
 Enable.ImageTransparency = 1
