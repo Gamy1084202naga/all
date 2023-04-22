@@ -797,14 +797,13 @@ end)
 
 
 maxvalue = 500
-                minvalue = 50
+                minvalue = 16
                 startVal = 0
-                callback = function() end
-
-local Speed = Instance.new("TextButton")
+                
+                local Speed = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
-                local SpeedName = Instance.new("TextLabel")
-                local SpeedButton = Instance.new("TextButton")
+                local SpeedName = Instance.new("TextLabel")              
+                local SpeedBtn = Instance.new("TextButton")
                 local UICorner_2 = Instance.new("UICorner")
                 local UIListLayout = Instance.new("UIListLayout")
                 local SpeedDrag = Instance.new("Frame")
@@ -815,7 +814,7 @@ local Speed = Instance.new("TextButton")
                 Speed.Name = "Speed"
                 Speed.Parent = SettingUI
                 Speed.BackgroundColor3 = themeList.ElementColor
-                Speed.Position = UDim2.new(0,0,0.45,0)
+                Speed.Position = UDim2.new(0,0,0.5,0)
                 Speed.ClipsDescendants = true
                 Speed.Size = UDim2.new(0, 352, 0, 33)
                 Speed.AutoButtonColor = false
@@ -838,28 +837,29 @@ local Speed = Instance.new("TextButton")
                 SpeedName.RichText = true
                 SpeedName.TextColor3 = themeList.TextColor
                 SpeedName.TextSize = 14.000
-                SpeedName.TextXAlignment = Enum.TextXAlignment.Left                
+                SpeedName.TextXAlignment = Enum.TextXAlignment.Left
 
-                SpeedButton.Name = "SpeedButton"
-                SpeedButton.Parent = Speed
-                SpeedButton.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 5, themeList.ElementColor.g * 255 + 5, themeList.ElementColor.b * 255  + 5)
-                SpeedButton.BorderSizePixel = 0
-                SpeedButton.Position = UDim2.new(0.488749951, 0, 0.393939406, 0)
-                SpeedButton.Size = UDim2.new(0, 149, 0, 6)
-                SpeedButton.AutoButtonColor = false
-                SpeedButton.Font = Enum.Font.SourceSans
-                SpeedButton.Text = ""
-                SpeedButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-                SpeedButton.TextSize = 14.000
+               
+                SpeedBtn.Name = "SpeedBtn"
+                SpeedBtn.Parent = Speed
+                SpeedBtn.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 5, themeList.ElementColor.g * 255 + 5, themeList.ElementColor.b * 255  + 5)
+                SpeedBtn.BorderSizePixel = 0
+                SpeedBtn.Position = UDim2.new(0.488749951, 0, 0.393939406, 0)
+                SpeedBtn.Size = UDim2.new(0, 149, 0, 6)
+                SpeedBtn.AutoButtonColor = false
+                SpeedBtn.Font = Enum.Font.SourceSans
+                SpeedBtn.Text = ""
+                SpeedBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+                SpeedBtn.TextSize = 14.000
 
-                UICorner_2.Parent = SpeedButton
+                UICorner_2.Parent = SpeedBtn
 
-                UIListLayout.Parent = SpeedButton
+                UIListLayout.Parent = SpeedBtn
                 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
                 SpeedDrag.Name = "SpeedDrag"
-                SpeedDrag.Parent = SpeedButton
+                SpeedDrag.Parent = SpeedBtn
                 SpeedDrag.BackgroundColor3 = themeList.SchemeColor
                 SpeedDrag.BorderColor3 = Color3.fromRGB(74, 99, 135)
                 SpeedDrag.BorderSizePixel = 0
@@ -892,46 +892,77 @@ local Speed = Instance.new("TextButton")
                 val.TextTransparency = 1.000
                 val.TextXAlignment = Enum.TextXAlignment.Right
 
-                
+                           
+                                
+                local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+
                 local ms = game.Players.LocalPlayer:GetMouse()
                 local uis = game:GetService("UserInputService")
-                local btn = Speed
-                
+                local btn = Speed                
                 local hovering = false
-               
+                btn.MouseEnter:Connect(function()
+                    if not focusing then
+                        game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                            BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 8, themeList.ElementColor.g * 255 + 9, themeList.ElementColor.b * 255 + 10)
+                        }):Play()
+                        hovering = true
+                    end 
+                end)
+                btn.MouseLeave:Connect(function()
+                    if not focusing then
+                        game.TweenService:Create(btn, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                            BackgroundColor3 = themeList.ElementColor
+                        }):Play()
+                        hovering = false
+                    end
+                end)        
+
+                coroutine.wrap(function()
+                    while wait() do
+                        if not hovering then
+                            Speed.BackgroundColor3 = themeList.ElementColor
+                        end
+                        moreInfo.TextColor3 = themeList.TextColor
+                        moreInfo.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                        val.TextColor3 = themeList.TextColor
+                        write.ImageColor3 = themeList.SchemeColor
+                        SpeedName.TextColor3 = themeList.TextColor                      
+                        SpeedBtn.BackgroundColor3 = Color3.fromRGB(themeList.ElementColor.r * 255 + 5, themeList.ElementColor.g * 255 + 5, themeList.ElementColor.b * 255  + 5)
+                        SpeedDrag.BackgroundColor3 = themeList.SchemeColor
+                    end
+                end)()
+
                 local Value
-                SpeedButton.MouseButton1Down:Connect(function()
+                SpeedBtn.MouseButton1Down:Connect(function()
                     if not focusing then
                         game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             TextTransparency = 0
                         }):Play()
-                        Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16)) or 1
+                        Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue)) or 1
                         pcall(function()
-                            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+                             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                         end)
                         SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         moveconnection = mouse.Move:Connect(function()
                             val.Text = Value
-                            Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16))
+                            Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                             pcall(function()
-                                game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+                                 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                             end)
                             SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                         end)
                         releaseconnection = uis.InputEnded:Connect(function(Mouse)
                             if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
-                                Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16))
+                                Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
                                 pcall(function()
-                                    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+                                     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                                 end)
-                                val.Text = Value                              
+                                val.Text = Value
                                 game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                                    
                                  TextTransparency = 0
                                 }):Play()
                                 SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
-  
                                 moveconnection:Disconnect()
                                 releaseconnection:Disconnect()
                             end
@@ -945,8 +976,6 @@ game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                     end
                 end)
                 
-               
-
 
 
 
