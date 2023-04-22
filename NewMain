@@ -632,6 +632,22 @@ end)
                 SettingUI.ZIndex = 9
                 SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
+          local SettingPage = Instance.new("TextLabel")
+
+SettingPage.Name = "SettingPage"
+                    SettingPage.Parent = SettingUI
+                    SettingPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    SettingPage.BackgroundTransparency = 1.000
+                    SettingPage.Position = UDim2.new(0,0,0.05,0)
+                    SettingPage.Size = UDim2.new(0, 288, 0, 14)
+                    SettingPage.Font = Enum.Font.GothamSemibold
+                    SettingPage.Text = "Ui Setting"
+                    SettingPage.RichText = true
+                    SettingPage.TextColor3 = themeList.TextColor
+                    SettingPage.TextSize = 14.000
+                    SettingPage.TextXAlignment = Enum.TextXAlignment.Left
+                                       
+
                     local toggleElement = Instance.new("TextButton")                    
                     local toggleDisabled = Instance.new("ImageLabel")
                     local toggleEnabled = Instance.new("ImageLabel")
@@ -641,6 +657,7 @@ end)
                     toggleElement.Name = "toggleElement"
                     toggleElement.Parent = SettingUI
                     toggleElement.BackgroundColor3 = themeList.ElementColor
+                    toggleElement.Position = UDim2.new(0,0,0.2,0)
                     toggleElement.ClipsDescendants = true
                     toggleElement.Size = UDim2.new(0, 352, 0, 33)
                     toggleElement.AutoButtonColor = false
@@ -721,7 +738,7 @@ local HideButton = Instance.new("TextButton")
                     HideButton.Name = "HideButton"
                     HideButton.Parent = SettingUI
                     HideButton.BackgroundColor3 = themeList.ElementColor
-                    HideButton.Position = UDim2.new(0,0,0.25,0)
+                    HideButton.Position = UDim2.new(0,0,0.4,0)
                     HideButton.ClipsDescendants = true
                     HideButton.Size = UDim2.new(0, 352, 0, 33)
                     HideButton.AutoButtonColor = false
