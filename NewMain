@@ -138,9 +138,33 @@ local themeStyles = {
 }
 local oldTheme = ""
 
-local SettingsT = { 
+_G.SettingSave = {
+   Anonymous = false;
+   HideText = false;   
+}   
 
-}
+
+function loadsetting()
+
+local HttpService= game:GetService("HttpService")
+if (readfile and isfile and isfile("/romhub/UiSetting")) then
+_G.SettingSave = HttpService:JSONDecode(readfile("/romhub/UiSetting"));
+
+end
+end
+
+
+function saveSettings()
+local json;
+local HttpService= game:GetService("HttpService");
+if (writefile) then
+json = HttpService:JSONEncode(_G.SettingSave);
+writefile("/romhub/UiSetting", json);
+else
+
+ end
+end
+
 
 if isfolder("/romhub") then
    if isfile("/romhub/UiSetting", "") then
@@ -660,30 +684,25 @@ end)
                     togName.TextColor3 = themeList.TextColor
                     togName.TextSize = 14.000
                     togName.TextXAlignment = Enum.TextXAlignment.Left
-                    
-                    Sample.Name = "Sample"
-                    Sample.Parent = toggleElement
-                    Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    Sample.BackgroundTransparency = 1.000
-                    Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
-                    Sample.ImageColor3 = themeList.SchemeColor
-                    Sample.ImageTransparency = 0.600
+                                       
 
 local anony = toggleElement
 local Enable = toggleEnabled
 
 anony.MouseButton1Click:Connect(function()
 if anonymous then
+_G.SettingSave.Anonymous = false
+saveSettings()
 getgenv().anonymous = false
-writefile("/romhub/UiSetting", "{Anonymous = false}") 
 User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
 Enable.ImageTransparency = 1
 
 else
+_G.SettingSave.Anonymous = true
+saveSettings()
 getgenv().anonymous = true
-writefile("/romhub/UiSetting", "{Anonymous = true}") 
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
@@ -692,25 +711,14 @@ Enable.ImageTransparency = 0
 end
 end)                    
  
-if readfile("/romhub/UiSetting") == "{Anonymous = false}" then
-getgenv().anonymous = false
-Enable.ImageTransparency = 1
-User.Text = user
-time.TextTransparency = 0
-UserImage.Image = pfp
-else
-if readfile("/romhub/UiSetting") == "{Anonymous = true}" then
+if _G.SettingSave.Anonymous then
 getgenv().anonymous = true
 Enable.ImageTransparency = 0
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
-else
-User.Text = user
-time.TextTransparency = 0
-UserImage.Image = pfp
 end
-end
+
                      
     coroutine.wrap(function()
         while wait() do
