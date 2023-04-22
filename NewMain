@@ -613,23 +613,15 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
 end)
 
 
-                SettingUI.Name = "SettingUI"
-                SettingUI.Parent = Main
-                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
-                SettingUI.Position = UDim2.new(0.5,0,2,0)
-                SettingUI.Size = UDim2.new(0, 353, 0, 150)
-                SettingUI.ZIndex = 9
-                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
-
+                
 Tab.Name = "Tab"
-        Tab.Parent = SettingUI
+        Tab.Parent = Main
         Tab.Active = true
-        Tab.BackgroundColor3 = themeList.Background
-        Tab.BorderSizePixel = 0
-        Tab.Position = UDim2.new(0, 7, 0, 289)
-        Tab.Size = UDim2.new(1, 0, 1, 0)
-        
-        Tab.ScrollBarThickness = 5
+        Tab.Position = UDim2.new(0.5,0,2,0)
+                Tab.Size = UDim2.new(0, 353, 0, 150)
+                Tab.ZIndex = 9
+                Tab.AnchorPoint = Vector2.new(0.5, 0.5)                
+        Tab.ScrollBarThickness = 3
         Tab.Visible = false
         Tab.ScrollBarImageColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 16, themeList.SchemeColor.g * 255 - 15, themeList.SchemeColor.b * 255 - 28)
  
