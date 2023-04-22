@@ -452,13 +452,13 @@ spawn(function()
 local st = Setting         
 st.MouseButton1Click:Connect(function()
 if setting then
-Utility:TweenObject(Tab, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
+Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
 getgenv().setting = false
 
 else
 getgenv().setting = true
-                        Utility:TweenObject(Tab, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
+                        Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
                         Utility:TweenObject(blurFrame, {BackgroundTransparency = 0.5}, 0.2)                    
 end
 end)                    
@@ -527,7 +527,18 @@ end)
     tabFrames.Position = UDim2.new(0.0438990258, 0, -0.00066378375, 0)
     tabFrames.Size = UDim2.new(0, 135, 0, 283)
 
+        Tab.Name = "Tab"
+        Tab.Parent = MainSide
+        Tab.Active = true
+        Tab.BackgroundColor3 = themeList.Background
+        Tab.BorderSizePixel = 0
+        Tab.Position = UDim2.new(0, 7, 0, 289)
+        Tab.Size = UDim2.new(1, 0, 1, 0)
         
+        Tab.ScrollBarThickness = 5
+        Tab.Visible = false
+        Tab.ScrollBarImageColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 16, themeList.SchemeColor.g * 255 - 15, themeList.SchemeColor.b * 255 - 28)
+ 
         
     tabListing.Name = "tabListing"
     tabListing.Parent = tabFrames
@@ -613,23 +624,18 @@ Utility:TweenObject(FactName, {Position = UDim2.new(0.5,0,2,0)}, 0.8)
 end)
 
 
-                
-Tab.Name = "Tab"
-        Tab.Parent = Main
-        Tab.Active = true
-        Tab.Position = UDim2.new(0.5,0,2,0)
-                Tab.Size = UDim2.new(0, 353, 0, 150)
-                Tab.ZIndex = 9
-                Tab.AnchorPoint = Vector2.new(0.5, 0.5)                
-        Tab.ScrollBarThickness = 3
-        Tab.Visible = false
-        Tab.ScrollBarImageColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 16, themeList.SchemeColor.g * 255 - 15, themeList.SchemeColor.b * 255 - 28)
- 
+                SettingUI.Name = "SettingUI"
+                SettingUI.Parent = Main
+                SettingUI.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
+                SettingUI.Position = UDim2.new(0.5,0,2,0)
+                SettingUI.Size = UDim2.new(0, 373, 0, 200)
+                SettingUI.ZIndex = 9
+                SettingUI.AnchorPoint = Vector2.new(0.5, 0.5)                
 
           local SettingPage = Instance.new("TextLabel")
 
 SettingPage.Name = "SettingPage"
-                    SettingPage.Parent = Tab
+                    SettingPage.Parent = SettingUI
                     SettingPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     SettingPage.BackgroundTransparency = 1.000
                     SettingPage.Position = UDim2.new(0,0,0.05,0)
@@ -641,6 +647,7 @@ SettingPage.Name = "SettingPage"
                     SettingPage.TextSize = 14.000
                     SettingPage.TextXAlignment = Enum.TextXAlignment.Left
                                        
+
                     local toggleElement = Instance.new("TextButton")                    
                     local toggleDisabled = Instance.new("ImageLabel")
                     local toggleEnabled = Instance.new("ImageLabel")
@@ -648,7 +655,7 @@ SettingPage.Name = "SettingPage"
                     local Sample = Instance.new("ImageLabel")
                
                     toggleElement.Name = "toggleElement"
-                    toggleElement.Parent = Tab
+                    toggleElement.Parent = SettingUI
                     toggleElement.BackgroundColor3 = themeList.ElementColor
                     toggleElement.Position = UDim2.new(0,0,0.2,0)
                     toggleElement.ClipsDescendants = true
@@ -729,7 +736,7 @@ local HideButton = Instance.new("TextButton")
                     local HideText = Instance.new("TextLabel")                  
                     
                     HideButton.Name = "HideButton"
-                    HideButton.Parent = Tab
+                    HideButton.Parent = SettingUI
                     HideButton.BackgroundColor3 = themeList.ElementColor
                     HideButton.Position = UDim2.new(0,0,0.4,0)
                     HideButton.ClipsDescendants = true
@@ -822,9 +829,9 @@ maxvalue = 500
                 local val = Instance.new("TextLabel")
 
                 Speed.Name = "Speed"
-                Speed.Parent = Tab
+                Speed.Parent = SettingUI
                 Speed.BackgroundColor3 = themeList.ElementColor
-                Speed.Position = UDim2.new(0,0,0.5,0)
+                Speed.Position = UDim2.new(0,0,0.8,0)
                 Speed.ClipsDescendants = true
                 Speed.Size = UDim2.new(0, 352, 0, 33)
                 Speed.AutoButtonColor = false
@@ -3330,5 +3337,4 @@ end
     return Tabs
 end
 return Kavo
-
 
