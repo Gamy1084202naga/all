@@ -777,9 +777,9 @@ if Hide then
 _G.SettingSave.HideText = false
 saveSettings()
 getgenv().Hide = false
-Time.TextTransparency = 1
-Fps.TextTransparency = 1
-Ping.TextTransparency = 1
+Time.TextTransparency = 0
+Fps.TextTransparency = 0
+Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 
 else
@@ -823,14 +823,13 @@ getgenv().Hide = false
 Time.TextTransparency = 1
 Fps.TextTransparency = 1
 Ping.TextTransparency = 1
-HidEnable.ImageTransparency = 1
-
+HidEnable.ImageTransparency = 0
 else
 getgenv().Hide = true
-Time.TextTransparency = 1
-Fps.TextTransparency = 1
-Ping.TextTransparency = 1
-HidEnable.ImageTransparency = 0	
+Time.TextTransparency = 0
+Fps.TextTransparency = 0
+Ping.TextTransparency = 0
+HidEnable.ImageTransparency = 1
 end
 
                      
