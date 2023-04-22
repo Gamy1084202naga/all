@@ -905,22 +905,23 @@ local Speed = Instance.new("TextButton")
                         game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                             TextTransparency = 0
                         }):Play()
-                        Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue)) or 1
+                        Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16)) or 1
                         pcall(function()
                             callback(Value)
                         end)
                         SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
                         moveconnection = mouse.Move:Connect(function()
                             val.Text = Value
-                            Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
+                            Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16))
                             pcall(function()
                                 callback(Value)
                             end)
                             SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                         end)
                         releaseconnection = uis.InputEnded:Connect(function(Mouse)
                             if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
-                                Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(minvalue))
+                                Value = math.floor((((tonumber(500) - tonumber(16)) / 149) * SpeedDrag.AbsoluteSize.X) + tonumber(16))
                                 pcall(function()
                                     callback(Value)
                                 end)
