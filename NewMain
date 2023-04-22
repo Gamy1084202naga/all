@@ -819,13 +819,13 @@ Enable.ImageTransparency = 1
 end
 
 if _G.SettingSave.HideText then
-getgenv().Hide = false
+getgenv().Hide = true
 Time.TextTransparency = 1
 Fps.TextTransparency = 1
 Ping.TextTransparency = 1
 HidEnable.ImageTransparency = 0
 else
-getgenv().Hide = true
+getgenv().Hide = false
 Time.TextTransparency = 0
 Fps.TextTransparency = 0
 Ping.TextTransparency = 0
