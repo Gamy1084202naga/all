@@ -832,6 +832,11 @@ Ping.TextTransparency = 0
 HidEnable.ImageTransparency = 1
 end
 
+if _G.SettingSave.Anonymous and _G.SettingSave.HideText then
+
+title.Position = UDim2.new(0.0171428565, 0, 0.344827592, 0)
+
+end
                      
     coroutine.wrap(function()
         while wait() do
