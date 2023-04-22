@@ -721,7 +721,7 @@ local HideButton = Instance.new("TextButton")
                     HideButton.Name = "HideButton"
                     HideButton.Parent = SettingUI
                     HideButton.BackgroundColor3 = themeList.ElementColor
-                    HideButton.Position = UDim2.new(0,0,0.2,0)
+                    HideButton.Position = UDim2.new(0,0,0.25,0)
                     HideButton.ClipsDescendants = true
                     HideButton.Size = UDim2.new(0, 352, 0, 33)
                     HideButton.AutoButtonColor = false
@@ -777,22 +777,16 @@ if Hide then
 _G.SettingSave.HideText = false
 saveSettings()
 getgenv().Hide = false
-User.TextTransparency = 0
-UserImage.ImageTransparency = 0
-time.TextTransparency = 0
-Time.TextTransparency = 0
-Fps.TextTransparency = 0
-Ping.TextTransparency = 0
+Time.TextTransparency = 1
+Fps.TextTransparency = 1
+Ping.TextTransparency = 1
 HidEnable.ImageTransparency = 1
 
 else
 _G.SettingSave.HideText = true
 saveSettings()
 getgenv().Hide = true
-User.TextTransparency = 1
-time.TextTransparency = 1
 Time.TextTransparency = 1
-UserImage.ImageTransparency = 1
 Fps.TextTransparency = 1
 Ping.TextTransparency = 1
 HidEnable.ImageTransparency = 0             
@@ -822,6 +816,21 @@ User.Text = user
 UserImage.Image = pfp
 time.TextTransparency = 0
 Enable.ImageTransparency = 1 	
+end
+
+if _G.SettingSave.HideText then
+getgenv().Hide = false
+Time.TextTransparency = 1
+Fps.TextTransparency = 1
+Ping.TextTransparency = 1
+HidEnable.ImageTransparency = 1
+
+else
+getgenv().Hide = true
+Time.TextTransparency = 1
+Fps.TextTransparency = 1
+Ping.TextTransparency = 1
+HidEnable.ImageTransparency = 0	
 end
 
                      
