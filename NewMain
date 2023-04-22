@@ -711,12 +711,20 @@ Enable.ImageTransparency = 0
 end
 end)                    
  
+loadsetting()
+
 if _G.SettingSave.Anonymous then
 getgenv().anonymous = true
 Enable.ImageTransparency = 0
 User.Text = "Anonymous"
 time.TextTransparency = 1
-UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
+UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png"
+else
+getgenv().anonymous = false
+User.Text = user
+UserImage.Image = pfp
+time.TextTransparency = 0
+Enable.ImageTransparency = 1 	
 end
 
                      
