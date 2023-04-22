@@ -797,7 +797,7 @@ end)
 
 
 maxvalue = 500
-                minvalue = 16
+                minvalue = 50
                 startVal = 0
                 callback = function() end
 
@@ -896,7 +896,7 @@ local Speed = Instance.new("TextButton")
                 local ms = game.Players.LocalPlayer:GetMouse()
                 local uis = game:GetService("UserInputService")
                 local btn = Speed
-                local infBtn = viewInfo
+                
                 local hovering = false
                
                 local Value
@@ -924,13 +924,13 @@ local Speed = Instance.new("TextButton")
                                 pcall(function()
                                     callback(Value)
                                 end)
-                                val.Text = Value
-                               game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+                                val.Text = Value                              
                                 game.TweenService:Create(val, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
                                    
                                  TextTransparency = 0
                                 }):Play()
                                 SpeedDrag:TweenSize(UDim2.new(0, math.clamp(mouse.X - SpeedDrag.AbsolutePosition.X, 0, 149), 0, 6), "InOut", "Linear", 0.05, true)
+  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
                                 moveconnection:Disconnect()
                                 releaseconnection:Disconnect()
                             end
