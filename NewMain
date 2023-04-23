@@ -900,6 +900,7 @@ wait("3")
 TextClassic.Text = "Classic Kavoui"
 
 else
+
 if Classic then
 _G.SettingSave.ClassicUi = false
 saveSettings()
