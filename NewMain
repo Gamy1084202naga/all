@@ -915,7 +915,7 @@ title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
 oldEnable.ImageTransparency = 1
 
 else
-_G.SettingSave.ClassUi = true
+_G.SettingSave.ClassicUi = true
 saveSettings()
 getgenv().Classic = true
 User.TextTransparency = 1
