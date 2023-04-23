@@ -1056,8 +1056,6 @@ maxvalue = 500
                         if not hovering then
                             Speed.BackgroundColor3 = themeList.ElementColor
                         end
-                        moreInfo.TextColor3 = themeList.TextColor
-                        moreInfo.BackgroundColor3 = Color3.fromRGB(themeList.SchemeColor.r * 255 - 14, themeList.SchemeColor.g * 255 - 17, themeList.SchemeColor.b * 255 - 13)
                         val.TextColor3 = themeList.TextColor
                         write.ImageColor3 = themeList.SchemeColor
                         SpeedName.TextColor3 = themeList.TextColor                      
