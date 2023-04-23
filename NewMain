@@ -897,7 +897,7 @@ TextClassic.Text = "Cannot Change Setting off Other Setting first"
 
 wait("3")
 
-ClassicText.Text = "Classic Kavoui"
+TextClassic.Text = "Classic Kavoui"
 
 else
 if Classic then
