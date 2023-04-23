@@ -904,7 +904,7 @@ if Classic then
 _G.SettingSave.ClassicUi = false
 saveSettings()
 getgenv().Classic = false
-User.TextTransparencyb= 0
+User.TextTransparency = 0
 time.TextTransparency = 0
 UserImage.ImageTransparency = 0
 Time.TextTransparency = 0
@@ -918,7 +918,7 @@ else
 _G.SettingSave.ClassUi = true
 saveSettings()
 getgenv().Classic = true
-User.TextTransparencyb= 1
+User.TextTransparency = 1
 time.TextTransparency = 1
 UserImage.ImageTransparency = 1
 Time.TextTransparency = 1
