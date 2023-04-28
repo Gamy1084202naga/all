@@ -466,7 +466,7 @@ st.MouseButton1Click:Connect(function()
 if setting then
 game.TweenService:Create(
 Setting,
-TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 0}
 ):Play()
 Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 2, 0)}, 0.8)
@@ -477,7 +477,7 @@ else
 getgenv().setting = true
 game.TweenService:Create(
 Setting,
-TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 360}
 ):Play()
                         Utility:TweenObject(SettingUI, {Position = UDim2.new(0.5, 0, 0.5, 0)}, 0.8)
@@ -745,6 +745,8 @@ _G.SettingSave.Anonymous = true
 saveSettings()
 getgenv().anonymous = true
 title.Position = UDim2.new(0.285428565, 0, 0.615827592, 0)
+UserImage.ImageTransparency = 0
+User.TextTransparency = 0
 User.Text = "Anonymous"
 time.TextTransparency = 1
 UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=1&width=420&height=420&format=png" 	
@@ -1065,7 +1067,7 @@ end
 if _G.SettingSave.Anonymous and _G.SettingSave.HideText then
 UserImage.ImageTransparency = 1
 User.TextTransparency = 1
-title.Position = UDim2.new(0.0171428565, 0, 0.344827592, 0)
+title.Position = UDim2.new(0.0111428565, 0, 0.344827592, 0)
 
 end
                      
