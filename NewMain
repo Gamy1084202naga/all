@@ -1067,7 +1067,7 @@ end
 if _G.SettingSave.Anonymous and _G.SettingSave.HideText then
 UserImage.ImageTransparency = 1
 User.TextTransparency = 1
-title.Position = UDim2.new(0.0111428565, 0, 0.344827592, 0)
+title.Position = UDim2.new(0, 0, 0.344827592, 0)
 
 end
                      
