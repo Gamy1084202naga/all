@@ -465,7 +465,7 @@ local st = Setting
 st.MouseButton1Click:Connect(function()
 if setting then
 TweenService:Create(
-ArrowImg,
+Setting,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 0}
 ):Play()
@@ -476,7 +476,7 @@ getgenv().setting = false
 else
 getgenv().setting = true
 TweenService:Create(
-ArrowImg,
+Setting,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 360}
 ):Play()
