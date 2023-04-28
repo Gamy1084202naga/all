@@ -398,7 +398,7 @@ end)
     User.TextSize = 15.000
     User.TextXAlignment = Enum.TextXAlignment.Left
 
-    User.Text = "N/A"
+    User.Text = user
 
     
 
@@ -464,7 +464,7 @@ _G.time = false
 local st = Setting         
 st.MouseButton1Click:Connect(function()
 if setting then
-TweenService:Create(
+game.TweenService:Create(
 Setting,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 0}
@@ -475,7 +475,7 @@ getgenv().setting = false
 
 else
 getgenv().setting = true
-TweenService:Create(
+game.TweenService:Create(
 Setting,
 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 {Rotation = 360}
